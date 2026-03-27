@@ -1,65 +1,80 @@
-import Image from "next/image";
+import { memo } from 'react';
+import Banner from './HomeCom/Banner';
+import ScaleYourHairRepair from './HomeCom/ScaleYourHairRepair';
+import Leadinghailrepair from './HomeCom/Leadinghailrepair';
+import Aboutsection from './HomeCom/Aboutsection';
+import TestimonialSection from './HomeCom/Testimonialsection';
+import TabSliderSection from './HomeCom/TabSliderSection';
+import InvoiceFast from './HomeCom/InvoiceFast';
+import FeaturesSection from './HomeCom/Featuressection';
 
-export default function Home() {
+const Page = () => {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <Banner  
+        poster="/banner.png"
+        video="/0_Hail_Car_3840x2160.mp4"
+        title="Run Your Repair Business Like a Well-Tuned Machine"
+        description="Find consistent hail damage repair jobs and grow your income with confidence"
+        buttontitle="Get a Demo"
+        buttonurl="/demo"
+      />
+      <Aboutsection
+        badge="ABOUT US"
+        title="Powering the Future of"
+        titleHighlight="Hail Damage Repair"
+        paragraphs={[
+          'At Prorevv, we connect skilled hail damage repair technicians with real, high-quality job opportunities across the industry. Our platform is built to simplify how repair professionals find work, manage projects, and grow their business.',
+          'From job assignment to work order management, we help repair professionals focus on what they do best — restoring vehicles with precision and confidence.',
+        ]}
+        btnText="Download Now"
+        btnUrl="/download"
+        imageSrc="/about-image.png"
+      />
+      <InvoiceFast 
+        image="/invoice-fast.png"
+        title="Invoice Fast and Get Paid Sooner"
+        description={[
+          "Avoid missing unpaid repair invoices and eliminate payment delays by tracking all your expenses and purchases in one auto shop management software. Offer your clients the possibility to pay their invoices online and send automatic email notifications when a client's auto repair service is due.", 
+          "In addition to payment tracking, you can also check important statistics for your auto repair shop straight from your computer and laptop. The ARI team has worked hard to create a standalone program that works on Windows operating systems."
+        ]}
+        findOutBtnText="Find Out More"
+        findOutBtnUrl="/"
+        getEarlyText="Get Early Access"
+        getEarlyUrl="/"
+      />
+      <TabSliderSection 
+        title="Designed Specifically for Hail Repair Professionals"
+      />
+      <FeaturesSection
+        badge="Features"
+        heading="Powerful Tools Built for"
+        subheading="Hail Repair Professionals"
+        downloadText="Download Now"
+        downloadUrl="/"
+        getstartBtn="Get Started"
+        getstartUrl="/"
+      />
+      <TestimonialSection />
+      <Leadinghailrepair
+          badge="Trusted by Professionals"
+          title="Join the Leading Hail Repair"
+          subtitle="Management Platform"
+          description="Thousands of repair companies and technicians trust Prorevv to operate more efficiently and scale with confidence."
+          downloadBtnText="Download Now"
+          downloadBtnUrl="/"
+      />
+      <ScaleYourHairRepair
+        title="Scale Your Hail Repair Business"
+        description="Whether you're building a repair team or running jobs independently, Prorevv gives you complete control over your operations."
+        subheading="Simple. Powerful. Built for performance."
+        bookDemoTtitle="Book A Demo"
+        bookDemoUrl="/"
+        getStartTitle="Get Started"
+        getStartUrl="/"
+      />
+    </>
   );
-}
+};
+
+export default memo(Page);
